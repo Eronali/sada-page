@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sada 💜</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#5a189a,#000);
+  color:#f6e9ff;
+  overflow-x:hidden;
+}
+
+/* FLOATING WORD HEARTS */
+.word{
+  position:fixed;
+  bottom:-30px;
+  color:#c77dff;
+  font-size:14px;
+  opacity:.7;
+  animation:float 8s linear forwards;
+  pointer-events:none;
+}
+@keyframes float{
+  to{transform:translateY(-120vh);opacity:0}
+}
+
+/* HOME */
+#home{
+  display:flex;
+  min-height:100vh;
+  padding:25px;
+  gap:20px;
+  animation:fade 1s ease;
+}
+.left,.right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* TREE */
+.tree{
+  position:relative;
+  width:200px;
+  height:300px;
+}
+.trunk{
+  width:30px;
+  height:160px;
+  background:#5a3a22;
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:20px;
+}
+.leaf{
+  position:absolute;
+  font-size:26px;
+  animation:pulse 1.6s infinite;
+  color:#c77dff;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+}
+
+/* TITLE */
+h1{
+  text-align:center;
+  margin-bottom:15px;
+  text-shadow:0 0 25px #c77dff;
+}
+
+/* COUNTER */
+#counter{
+  margin-top:10px;
+  font-size:16px;
+  opacity:.9;
+}
+
+/* BUTTONS */
+.option{
+  width:270px;
+  padding:15px;
+  margin:12px;
+  border-radius:40px;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,#7209b7,#c77dff);
+  box-shadow:0 0 30px rgba(199,125,255,.8);
+  transition:.3s;
+}
+.option:hover{transform:scale(1.07)}
+
+.page{
+  display:none;
+  min-height:100vh;
+  padding:30px;
+  animation:fade 1s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1}
+}
+
+.back{
+  margin-bottom:20px;
+  background:none;
+  border:1px solid #c77dff;
+  color:#c77dff;
+  padding:8px 20px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.message{
+  max-width:900px;
+  line-height:2.4;
+  font-size:18px;
+  white-space:pre-line;
+  text-shadow:0 0 12px rgba(199,125,255,.4);
+}
+
+.photo{
+  width:300px;
+  border-radius:30px;
+  margin-top:20px;
+  box-shadow:0 0 40px rgba(199,125,255,.8);
+}
+
+/* ROMANTIC NAMES MAIN PAGE */
+#romance-main{
+  margin-top:20px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  color:#ffb6f1;
+  text-shadow:0 0 15px #ffb6f1;
+}
+
+/* ROMANTIC NAMES SONG PAGE UNDER PHOTO */
+#romance-song{
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+  color:#ff6ef7;
+  text-shadow:0 0 30px #ffb6f1, 0 0 50px #c77dff;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div id="home">
+  <div class="left">
+    <h1>Welcome to my life<br>Sada 💜</h1>
+
+    <div class="tree">
+      <div class="trunk"></div>
+      <div class="leaf" style="top:10px;left:40px">💜</div>
+      <div class="leaf" style="top:30px;left:90px">💜</div>
+      <div class="leaf" style="top:60px;left:20px">💜</div>
+      <div class="leaf" style="top:70px;left:120px">💜</div>
+      <div class="leaf" style="top:110px;left:60px">💜</div>
+    </div>
+
+    <div id="counter"></div>
+
+    <!-- ROMANTIC NAMES MAIN PAGE -->
+    <div id="romance-main">
+      Eron ❤️ Sada ∞
+    </div>
+  </div>
+
+  <div class="right">
+    <button class="option" onclick="showFun()">
+      پەنجەبنێ بێرەیا حوشتر🙂‍↔️🙂😘🦦
+    </button>
+
+    <button class="option" onclick="showSong()">
+      ئەی خۆ ئێرەو بیرچوو گەمژە گیان 😂🦦
+    </button>
+  </div>
+</div>
+
+<!-- MESSAGE PAGE -->
+<div id="msg" class="page">
+  <button class="back" onclick="goHome()">⬅ گەڕانەوە</button>
+  <div class="message">
+ئینجا چۆنی هەناسەم،  
+سەرەتا دەمەوێ بە دڵێکی پڕ بڵێم خۆشمەوێی،  
+خۆشمەوێی نەک تەنها وەک وشە،  
+بەڵکو وەک هەناسەی ژیانم.
+
+من پێش ئەوەی تۆ بناسم،  
+وێڵبووم لەم ژیانە،  
+ڕێگاکان تاریک بوون  
+و دڵم بەدوای شتێکدا دەگەڕا کە خۆی نەیدەزانی.
+
+کاتێک تۆ هاتیتە ناو ژیانم،  
+هەموو شتێک ڕووناک بوو،  
+هەموو ماناکان گۆڕان.  
+
+بوویتە هیمن،  
+بوویتە نوور،  
+بوویتە ئەو هێزەی کە دڵم پێی ئارام دەگرێت.
+
+بوویتە مانگی چواردەی من،  
+بوویتە ئەستێرەی شەوەکانم،  
+بوویتە هەموو ئەو شتەی کە پێویستم پێی بوو و نەمدەزانی.
+
+هەناسەم،  
+ئەگەر ژیانم درەختێک بێت  
+تۆ ڕواندنەوەی ئەو درەختەی.  
+
+سەرکە توور خۆشمەوێی  
+گیانەکم، نوورەکم، ژیانم 💜
+  </div>
+</div>
+
+<!-- SONG PAGE -->
+<div id="song" class="page" style="text-align:center;position:relative;">
+  <button class="back" onclick="goHome()">⬅ گەڕانەوە</button>
+
+  <img src="photo.jpg" class="photo">
+
+  <!-- ROMANTIC NAMES SONG PAGE UNDER PHOTO -->
+  <div id="romance-song">Eron ❤️ Sada ∞</div>
+
+  <!-- HIDDEN SONG -->
+  <div style="position:absolute; width:0; height:0; overflow:hidden;">
+    <iframe
+      width="320"
+      height="180"
+      src="https://www.youtube.com/embed/DFoTKpC1BHg?start=76&autoplay=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- FUN PAGE -->
+<div id="fun" class="page" style="text-align:center">
+  <button class="back" onclick="goHome()">⬅ گەڕانەوە</button>
+  <div style="margin-top:40px;">
+    <button class="option" onclick="showPlayful()">وەرە ئێرە هەناسە 🙃</button>
+    <button class="option" id="lockedBtn" onclick="unlockAndGo()" disabled>
+      گیانەکەم لێرەیە دڵم 🖤💜
+    </button>
+  </div>
+</div>
+
+<!-- PLAYFUL PAGE -->
+<div id="playful" class="page" style="text-align:center">
+  <button class="back" onclick="showFun()">⬅ گەڕانەوە</button>
+  <h1>بڕۆرەوە گاڵتەمکرد😂😂</h1>
+</div>
+
+<script>
+/* NAV */
+function showPage(id){
+  home.style.display="none";
+  msg.style.display="none";
+  song.style.display="none";
+  fun.style.display="none";
+  playful.style.display="none";
+  document.getElementById(id).style.display="block";
+}
+function showSong(){
+  showPage("song");
+}
+function goHome(){
+  home.style.display="flex";
+  msg.style.display="none";
+  song.style.display="none";
+  fun.style.display="none";
+  playful.style.display="none";
+}
+
+/* COUNTER (from 29 Dec 2025 – 11:30) */
+const startDate=new Date("2025-12-29T11:30:00");
+setInterval(()=>{
+  const now=new Date();
+  let diff=Math.floor((now-startDate)/1000);
+  const d=Math.floor(diff/86400); diff%=86400;
+  const h=Math.floor(diff/3600); diff%=3600;
+  const m=Math.floor(diff/60);
+  counter.innerText=`💜 ${d} ڕۆژ ${h} کاتژمێر ${m} خولەک پێکەوە`;
+},1000);
+
+/* FLOATING WORD HEARTS */
+const words=[
+"ئاشقتم","خۆشمەوێی","سەرکە توور","هەناسەم","گیانەکم",
+"نوورەکەم","بە میوانبم","ماڵەکەم","شازادەکەم",
+"ژیانم","خۆشیەکانم","حەیاتم"
+];
+setInterval(()=>{
+  const w=document.createElement("div");
+  w.className="word";
+  w.innerText=words[Math.floor(Math.random()*words.length)];
+  w.style.left=Math.random()*100+"vw";
+  document.body.appendChild(w);
+  setTimeout(()=>w.remove(),8000);
+},600);
+
+/* FUN PAGE LOGIC */
+let unlocked = false;
+
+function showFun() {
+  showPage('fun');
+  if(unlocked){
+    const btn = document.getElementById('lockedBtn');
+    btn.disabled = false;
+    btn.innerText = "گاڵتە ئەکەم تووڕە مەبە خەوخۆشەکەم 😂😛😍😘";
+  }
+}
+
+function showPlayful() {
+  unlocked = true;
+  const btn = document.getElementById('lockedBtn');
+  btn.disabled = false;
+  btn.innerText = "گاڵتە ئەکەم تووڕە مەبە خەوخۆشەکەم 😂😛😍😘";
+  showPage('playful');
+}
+
+function unlockAndGo() {
+  if(unlocked){
+    showPage('msg');
+  }
+}
+
+/* FLOATING TEXTS AROUND PHOTO */
+const songTexts = [
+"ئەمە وێنەنیە، بەڵکو ژیانمە.لە هەموو جیهاندا، تۆ هەڵدەبژێرم تاکۆتا💜",
+"تۆ هۆکاری ئارامیمیت هەناسەم🫠",
+"بەساقەوبمممممممممممممم بااااااااششششششش",
+"کەرە گیان خۆشمەوێیییییییییییییییی",
+"کورە تۆ بۆ ئەوەنە شیرینت ؟؟ 🫠🫠😍",
+"ئەمەوێ لە باوەشتگرم",
+"شێتی ئەو جوانیەتم 😍😍",
+"کەی یەک ئەبینین ؟؟"
+];
+
+setInterval(()=>{
+  const w=document.createElement("div");
+  w.className="word";
+  w.innerText=songTexts[Math.floor(Math.random()*songTexts.length)];
+  // position around photo
+  w.style.position="absolute";
+  w.style.top = 150 + Math.random()*200 + "px";
+  w.style.left = 50 + Math.random()*220 + "px";
+  w.style.fontSize = 14 + Math.random()*10 + "px";
+  w.style.color = "#f6e9ff";
+  w.style.opacity = 0.8;
+  w.style.animation = "float 6s linear forwards";
+  document.getElementById("song").appendChild(w);
+  setTimeout(()=>w.remove(),6000);
+}, 800);
+</script>
+
+</body>
+</html>
